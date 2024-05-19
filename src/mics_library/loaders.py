@@ -29,7 +29,7 @@ def _get_key_cols(questionnaire, micsround):
     dict
         a swap indicator dict for the questionnaire
     '''
-    assert micsround in [3, 4, 5], "only implemented for mics 3, 4, 5"
+    assert micsround in [3, 4, 5, 6], "only implemented for mics 3, 4, 5"
 
     keys_dict = {'HHID': ['HH1', 'HH2']}
     
@@ -49,6 +49,11 @@ def _get_key_cols(questionnaire, micsround):
             keys_dict['HLID'] = ['HH1', 'HH2', 'HL1']
             keys_dict['mother_HLID'] = ['HH1', 'HH2', 'HL12']
             keys_dict['father_HLID'] = ['HH1', 'HH2', 'HL14']
+        
+        elif micsround == 6:
+            keys_dict['HLID'] = ['HH1', 'HH2', 'HL1']
+            keys_dict['mother_HLID'] = ['HH1', 'HH2', 'HL14']
+            keys_dict['father_HLID'] = ['HH1', 'HH2', 'HL18']
             
     elif questionnaire == 'wm':
         if micsround == 3:
@@ -59,12 +64,18 @@ def _get_key_cols(questionnaire, micsround):
             
         elif micsround == 5:
             keys_dict['HLID'] = ['HH1', 'HH2', 'LN']
+
+        elif micsround == 6:
+            keys_dict['HLID'] = ['HH1', 'HH2', 'LN']
             
     elif questionnaire == 'mn':
         if micsround == 4:
             keys_dict['HLID'] = ['HH1', 'HH2', 'LN']
             
         elif micsround == 5:
+            keys_dict['HLID'] = ['HH1', 'HH2', 'LN']
+
+        elif micsround == 6:
             keys_dict['HLID'] = ['HH1', 'HH2', 'LN']
             
     elif questionnaire == 'ch':
@@ -79,6 +90,10 @@ def _get_key_cols(questionnaire, micsround):
         elif micsround == 5:
             keys_dict['HLID'] = ['HH1', 'HH2', 'LN']#,
             keys_dict['caretaker_HLID'] =  ['HH1', 'HH2', 'UF6']
+
+        elif micsround == 6:
+            keys_dict['HLID'] = ['HH1', 'HH2', 'LN']#,
+            keys_dict['caretaker_HLID'] =  ['HH1', 'HH2', 'UF6']
     
     elif questionnaire == 'bh':
         if micsround == 4:
@@ -86,6 +101,10 @@ def _get_key_cols(questionnaire, micsround):
             keys_dict['mother_HLID'] =  ['HH1', 'HH2', 'LN']
             
         elif micsround == 5:
+            keys_dict['HLID'] = ['HH1', 'HH2', 'BH8']#,
+            keys_dict['mother_HLID'] =  ['HH1', 'HH2', 'LN']
+
+        elif micsround == 6:
             keys_dict['HLID'] = ['HH1', 'HH2', 'BH8']#,
             keys_dict['mother_HLID'] =  ['HH1', 'HH2', 'LN']
             
@@ -98,6 +117,9 @@ def _get_key_cols(questionnaire, micsround):
             
         elif micsround == 5:
             keys_dict['child_HLID'] = ['HH1', 'HH2', 'SL9B'] #TODO: CHECK
+
+        elif micsround == 6:
+            keys_dict['child_HLID'] = ['HH1', 'HH2', 'HH26B']
             
     return(keys_dict)
 
